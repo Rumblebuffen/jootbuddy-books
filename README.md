@@ -20,7 +20,7 @@ index.html                     home page
 escaping-samsara.html          book page and order flow
 css/styles.css                 all styling; the brand palette and type live in the :root block at the top
 assets/
-  escaping-samsara-cover.jpg   NOT INCLUDED — you supply this (see below)
+  escaping-samsara-cover.jpg   the cover, 1250 × 2000 JPG
   favicon.svg                  the mark, strokes thickened for tab size
   jootbuddy-mark-ink.svg       brand mark, ink on paper (from the brand kit)
   jootbuddy-mark-reversed.svg  brand mark, paper on ink (from the brand kit)
@@ -30,10 +30,11 @@ scripts/watermark_pdf.py       stamps buyer name and order reference onto every 
 README.md                      this file
 ```
 
-## Still to supply before deploy
+## Cover and social preview
 
-1. **The cover image**, saved as `assets/escaping-samsara-cover.jpg`. Both pages point at that exact path. A JPG at least 1200px tall is plenty. The frame takes the image's own proportions, so nothing is cropped or letterboxed. If you ever swap in a cover with different proportions, also update the `width`/`height` attributes on the two `<img>` tags (currently `1250` × `2000`) so the page reserves the right space while it loads.
-2. **A domain**, and then the social preview image. Each page's `<head>` has a commented-out `og:image` line. Once the site has a real address, uncomment it and put the absolute URL of the cover in it. Link previews on Substack, WhatsApp and the like need a full URL, not a relative path.
+- **Cover** is in place at `assets/escaping-samsara-cover.jpg` (1250 × 2000 JPG, made from the 1600 × 2560 PNG in the *Escaping Samsara Book* folder on the Desktop). The frame takes the image's own proportions, so nothing is cropped or letterboxed.
+- **To replace it later:** on GitHub open the `assets` folder, click **Add file → Upload files**, upload a file named exactly `escaping-samsara-cover.jpg`, and commit. If the new cover has different proportions, also change the `width`/`height` attributes on the two `<img>` tags (currently `1250` × `2000`).
+- **Link previews** (Substack, WhatsApp, Slack and the like) use the `og:image` tag in each page's `<head>`, which points at the live cover URL. Nothing to do unless the domain changes.
 
 ## Brand assets: already applied
 
