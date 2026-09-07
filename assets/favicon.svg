@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Jootbuddy Books mark at tab size: strokes thickened so it still reads at 16px.
+       Standalone file, so colours are literal here (ink #16202E, brass #A6803C, paper #F6F1E8). -->
+  <circle cx="32" cy="32" r="32" fill="#F6F1E8"/>
+  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#16202E" stroke-width="3"/>
+  <path d="M15 26 C21 21.5 27 21.5 32 25.5 L32 43 C27 39 21 39 15 43 Z" fill="none" stroke="#16202E" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M49 26 C43 21.5 37 21.5 32 25.5 L32 43 C37 39 43 39 49 43 Z" fill="none" stroke="#16202E" stroke-width="3.5" stroke-linejoin="round"/>
+  <line x1="32" y1="25.5" x2="32" y2="43" stroke="#A6803C" stroke-width="4"/>
+</svg>
