@@ -45,22 +45,19 @@ The palette, fonts and mark from the brand kit are wired in. To change any of th
 - **The mark** is inlined as SVG in the header, the home-page masthead and the footer, so it takes its colour from the CSS variables (`currentColor` for the book and ring, `--accent` for the spine). The brand-kit SVG files are in `assets/` for use elsewhere, such as social avatars.
 - **Favicon**: `assets/favicon.svg` is a standalone file, so it carries its own literal hex colours. Edit it separately if the palette changes.
 
-## Editing the order details
+## Ordering: Payhip checkout plus a wire-transfer fallback
 
-- **Price** appears in three places: the home-page card, the book-page price block, and inside the pre-filled email body (`$18`). Search both HTML files for `18`.
-- **Order email address**: search for `nat213@gmail.com`. It appears in the mailto links, the footers and the About section.
-- **The pre-filled email** is the `href` of the "Email your order" button on the book page. It's a URL-encoded mailto (`%20` is a space, `%0D%0A` is a new line). The least error-prone way to change it is to regenerate the whole string:
-
-  ```bash
-  python3 -c 'import urllib.parse as u; print("mailto:nat213@gmail.com?subject=" + u.quote("Escaping Samsara — Order Request", safe="") + "&body=" + u.quote("Hi Nathan,\r\n\r\nYour new body text here.\r\n", safe=""))'
-  ```
-
-  Paste the output into the `href`, changing the single `&` before `body=` to `&amp;`.
-- **Bank details never go in the page.** They go out by reply only. Keep it that way.
+- **The buy buttons** on the book page (hero and order card) are direct checkout links to Payhip: `https://payhip.com/buy?link=CODE`, where `CODE` is the product's code from its Payhip URL (`payhip.com/b/CODE`). Search `escaping-samsara.html` for `payhip.com` to change it. No script tag is needed; the link opens Payhip's checkout, which takes PayPal or card, then shows the download page and emails a receipt with the link.
+- **Price and files** are set in Payhip (Products → Escaping Samsara). The `$18` shown on the site is plain text in both HTML files; keep the two in step.
+- **PDF stamping** is a Payhip setting: Account → Settings → Advanced Settings → "Protect your PDF files". It stamps the buyer's email address and purchase date on every page (portrait PDFs only). The download limit lives on the same screen; the default is 5.
+- **Payouts** go to the connected PayPal account immediately after each sale. Sellers outside Payhip's listed countries need a PayPal Business account.
+- **Fees:** Payhip's free plan takes 5% per sale, plus PayPal's own fee.
+- **Wire-transfer fallback:** the "Email your order" button is still a pre-filled `mailto:` for buyers who can't use PayPal or card. Those orders are handled by hand, as before. Bank details never go in the page; they go out by reply only.
+- **Order email address:** search for `nat213@gmail.com`.
 
 ## Personalising each copy
 
-`scripts/watermark_pdf.py` stamps "Licensed to NAME · Order REF · Please do not redistribute" in the footer of every page and writes the buyer, order reference and delivery date into the PDF's metadata.
+For wire-transfer orders handled by hand, `scripts/watermark_pdf.py` stamps "Licensed to NAME · Order REF · Please do not redistribute" in the footer of every page and writes the buyer, order reference and delivery date into the PDF's metadata.
 
 ```bash
 pip install pypdf reportlab --break-system-packages
