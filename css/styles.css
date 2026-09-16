@@ -647,3 +647,15 @@ h1.book-title,
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+
+/* ---------- About: portrait ---------- */
+/* Portrait takes the same frame as the book cover — ink hairline, card shadow. */
+.portrait { margin: 28px 0 0; max-width: 300px; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--ink); box-shadow: var(--shadow-card); }
+.portrait figcaption { margin-top: 12px; font-size: 12px; letter-spacing: var(--tracking-label); text-transform: uppercase; font-weight: 600; color: var(--ink); }
+.portrait figcaption span { display: block; margin-top: 3px; font-weight: 500; color: var(--muted); }
+.about-opening { font-family: var(--font-serif); font-size: 1.1875rem; line-height: 1.7; color: var(--ink); }
+.about-contact { margin-top: 1.6em; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; }
+.author-avatar { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; border: 1px solid var(--ink); box-shadow: var(--shadow-card); margin-top: 22px; }
+@media (max-width: 720px) { .portrait { max-width: 240px; } }
