@@ -1,6 +1,6 @@
 # Jootbuddy Books — website
 
-Two static pages for Jootbuddy Books, an independent press, plus the order flow for its first release, *Escaping Samsara*.
+Static website for Jootbuddy Books, an independent press, and its first release, *Escaping Samsara*.
 
 Plain HTML and CSS. No framework, no build step, no JavaScript. Upload the folder to any static host and it works.
 
@@ -17,7 +17,7 @@ Plain HTML and CSS. No framework, no build step, no JavaScript. Upload the folde
 
 ```
 index.html                     home page
-escaping-samsara.html          book page and order flow
+escaping-samsara.html          book page, with the Amazon buy links
 css/styles.css                 all styling; the brand palette and type live in the :root block at the top
 assets/
   escaping-samsara-cover.jpg   the cover, 1250 × 2000 JPG
@@ -45,19 +45,15 @@ The palette, fonts and mark from the brand kit are wired in. To change any of th
 - **The mark** is inlined as SVG in the header, the home-page masthead and the footer, so it takes its colour from the CSS variables (`currentColor` for the book and ring, `--accent` for the spine). The brand-kit SVG files are in `assets/` for use elsewhere, such as social avatars.
 - **Favicon**: `assets/favicon.svg` is a standalone file, so it carries its own literal hex colours. Edit it separately if the palette changes.
 
-## Ordering: Payhip checkout plus a wire-transfer fallback
+## Buying: Amazon
 
-- **The buy buttons** on the book page (hero and order card) are direct checkout links to Payhip: `https://payhip.com/buy?link=CODE`, where `CODE` is the product's code from its Payhip URL (`payhip.com/b/CODE`). Search `escaping-samsara.html` for `payhip.com` to change it. No script tag is needed; the link opens Payhip's checkout, which takes PayPal or card, then shows the download page and emails a receipt with the link.
-- **Price and files** are set in Payhip (Products → Escaping Samsara). The `$18` shown on the site is plain text in both HTML files; keep the two in step.
-- **PDF stamping** is a Payhip setting: Account → Settings → Advanced Settings → "Protect your PDF files". It stamps the buyer's email address and purchase date on every page (portrait PDFs only). The download limit lives on the same screen; the default is 5.
-- **Payouts** go to the connected PayPal account immediately after each sale. Sellers outside Payhip's listed countries need a PayPal Business account.
-- **Fees:** Payhip's free plan takes 5% per sale, plus PayPal's own fee.
-- **Wire-transfer fallback:** the "Email your order" button is still a pre-filled `mailto:` for buyers who can't use PayPal or card. Those orders are handled by hand, as before. Bank details never go in the page; they go out by reply only.
-- **Order email address:** search for `nat213@gmail.com`.
+- **The buy buttons** (one on the home page, two on the book page) link to the Kindle edition on Amazon UK: `https://www.amazon.co.uk/dp/B0HKZC69RH`. The paperback is offered on the same Amazon page. To change the link, search the HTML files for `amazon.co.uk`.
+- **No prices on the site.** They vary by Amazon store and currency, so the site doesn't show them.
+- **Questions** go to `nat213@gmail.com`: the "Where to buy" section on the book page, and the Contact link in every footer.
 
-## Personalising each copy
+## PDF watermark script
 
-For wire-transfer orders handled by hand, `scripts/watermark_pdf.py` stamps "Licensed to NAME · Order REF · Please do not redistribute" in the footer of every page and writes the buyer, order reference and delivery date into the PDF's metadata.
+For a PDF copy sent out by hand, `scripts/watermark_pdf.py` stamps "Licensed to NAME · Order REF · Please do not redistribute" in the footer of every page and writes the buyer, order reference and delivery date into the PDF's metadata.
 
 ```bash
 pip install pypdf reportlab --break-system-packages

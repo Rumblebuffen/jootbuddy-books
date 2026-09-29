@@ -254,14 +254,6 @@ p:last-child { margin-bottom: 0; }
 
 .meta-line { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
 
-.note {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
 
 /* ---------- Buttons ---------- */
 
@@ -447,26 +439,6 @@ h1.book-title,
 .release-body .lede,
 .book-hero .lede { margin: 20px 0 20px; }
 
-.price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-top: 20px;
-}
-.price {
-  font-family: var(--font-display);
-  font-size: 2.25rem;
-  line-height: 1;
-  color: var(--ink);
-}
-.price-note {
-  font-size: 12px;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--muted);
-}
-
 
 /* ---------- What you get ---------- */
 
@@ -510,72 +482,9 @@ h1.book-title,
   box-shadow: var(--shadow-card);
   padding: clamp(28px, 4vw, 44px);
 }
-.order-card .price-row { margin-top: 0; }
 .order-card .btn { width: 100%; margin: 24px 0 8px; }
-.order-card .note { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--rule); }
 
-.steps {
-  list-style: none;
-  counter-reset: step;
-  margin: 24px 0 0;
-  padding: 0;
-}
-.steps li {
-  counter-increment: step;
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
-  gap: 16px;
-  padding: 18px 0;
-  border-top: 1px solid var(--rule);
-}
-.steps li::before {
-  content: counter(step, decimal-leading-zero);
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--accent);
-  padding-top: 2px;
-}
-.steps h3 {
-  font-family: var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: var(--ink);
-  margin: 0 0 4px;
-}
-.steps p { margin: 0; font-size: 15px; }
-
-.callout {
-  border: 1px solid var(--rule);
-  border-left: 3px solid var(--accent);
-  background: var(--ink-wash);
-  padding: 22px 26px;
-}
-.callout .eyebrow { font-size: 11px; letter-spacing: 0.28em; margin-bottom: 10px; }
-.callout p { margin: 0; font-size: 15px; line-height: 1.7; }
-
-.order-aside > * + * { margin-top: 28px; }
 .order-aside .prose p { font-size: 15px; }
-
-
-/* ---------- FAQ ---------- */
-
-.faq {
-  max-width: 760px;
-  border-top: 1px solid var(--rule);
-}
-.faq-item {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--rule);
-}
-.faq-item h3 {
-  font-size: 1.375rem;
-  line-height: 1.25;
-  margin-bottom: 10px;
-}
-.faq-item p { margin: 0; max-width: var(--measure-sans); }
-.faq-item p + p { margin-top: 0.8em; }
 
 
 /* ---------- Footer ---------- */
@@ -640,7 +549,6 @@ h1.book-title,
   .lockup-text { display: none; }   /* mark alone below 480px, per the brand guide */
   .site-nav { gap: 16px; }
   .spec > div { grid-template-columns: 1fr; gap: 4px; }
-  .steps li { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
