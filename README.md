@@ -45,10 +45,11 @@ The palette, fonts and mark from the brand kit are wired in. To change any of th
 - **The mark** is inlined as SVG in the header, the home-page masthead and the footer, so it takes its colour from the CSS variables (`currentColor` for the book and ring, `--accent` for the spine). The brand-kit SVG files are in `assets/` for use elsewhere, such as social avatars.
 - **Favicon**: `assets/favicon.svg` is a standalone file, so it carries its own literal hex colours. Edit it separately if the palette changes.
 
-## Buying: Amazon
+## Buying: Amazon and Kobo
 
-- **The buy buttons** (one on the home page, two on the book page) link to the Kindle edition on Amazon UK: `https://www.amazon.co.uk/dp/B0HKZC69RH`. The paperback is offered on the same Amazon page. To change the link, search the HTML files for `amazon.co.uk`.
-- **No prices on the site.** They vary by Amazon store and currency, so the site doesn't show them.
+- **The Amazon buttons** (one on the home page, two on the book page) link to the Kindle edition on Amazon UK: `https://www.amazon.co.uk/dp/B0HKZC69RH`. The paperback is offered on the same Amazon page. To change the link, search the HTML files for `amazon.co.uk`.
+- **The Kobo buttons** sit beside them and link to the EPUB in Kobo's Worldwide store: `https://www.kobo.com/ww/en/ebook/escaping-samsara`. Kobo offers readers their own country's store from that page. To change the link, search the HTML files for `kobo.com`.
+- **No prices on the site.** They vary by store and currency, so the site doesn't show them.
 - **Questions** go to `nat213@gmail.com`: the "Where to buy" section on the book page, and the Contact link in every footer.
 
 ## PDF watermark script

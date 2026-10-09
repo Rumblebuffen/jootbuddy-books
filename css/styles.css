@@ -483,6 +483,7 @@ h1.book-title,
   padding: clamp(28px, 4vw, 44px);
 }
 .order-card .btn { width: 100%; margin: 24px 0 8px; }
+.order-card .btn + .btn { margin-top: 4px; }
 
 .order-aside .prose p { font-size: 15px; }
 
